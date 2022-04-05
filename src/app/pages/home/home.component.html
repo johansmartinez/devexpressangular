@@ -1,0 +1,60 @@
+<div class="full">
+  <h2 class="content-block">Bienvenido</h2>
+  <div class="dx-fieldset" style="width: 100%">
+    <div class="dx-field" style="width: 100%; ">
+      <div class="dx-field-label">Tipos de documentos:</div>
+      <div class="dx-field-value">
+        <dx-select-box
+        #selectBox
+        placeholder="Seleccione un tipo de documento"
+        [dataSource]="owners"
+        displayExpr="Nombre"
+        valueExpr="Detalle"
+        [(value)]="formData.tipo" 
+        ></dx-select-box>
+      </div>
+    </div>
+    
+    <form  class="form-home" (submit)="onSubmit($event)">
+      <dx-form [visible]="!!formData.tipo" [formData]="formData">
+        <dxi-item dataField="documento" editorType="dxTextBox" [text]="selectBox.value"
+        [editorOptions]="{ stylingMode: 'filled', placeholder: 'numero de documento', mode: 'number' }">
+        <dxi-validation-rule type="required" message="El número de documento es requerido y solo valores númericos"></dxi-validation-rule>
+      </dxi-item>
+      
+      <dxi-item itemType="button">
+        <dxo-button-options width="100%"  type="default" [disabled]="fetching" [useSubmitBehavior]="true" [text]="(fetching)?'BUSCAnDO':'VALIDAR'">
+        </dxo-button-options>
+      </dxi-item>
+      
+    </dx-form>
+    
+  </form>
+  <dx-popup
+  width="80vw"
+  height="90vh"
+  [showTitle]="true"
+  [title]="fullname()"
+  [dragEnabled]="false"
+  [closeOnOutsideClick]="true"
+  [(visible)]="popupVisible"
+  >
+  <div *dxTemplate="let data of 'content'">
+    <div class="popup-property-details">
+      <dx-form
+      [scrollingEnabled]="true"
+      id="form"
+      [(formData)]="user"
+      [readOnly]="true"
+          labelMode="outside"
+          [showColonAfterLabel]="true"
+          labelLocation="top"
+          colCount="4"
+          width="100%"
+          ></dx-form>
+        </div>
+      </div>
+    </dx-popup>
+  </div>
+  
+</div>
