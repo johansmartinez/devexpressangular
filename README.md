@@ -1,14 +1,14 @@
-#DevExpressAngular
+# DevExpressAngular
 DevexpressAngular es un repositorio que constituye a una prueba técnica de Frontend, que integra Angular con el framework: Devexpress.
 
-##Objetivos
+## Objetivos
 1. Crear un formulario de tipo login para notificar su acceso y error al realizar este proceso.
 2.  Realizar una petición a un servicio para obtener y visualizar la respuesta en un combobox.
 3. Realizar una petición POST a un servicio y visualizar la respuesta en un Form o notificar el error.
 
-##Ejecución
+## Ejecución
 A continuación se listan las consideraciones y pasos para ejecutar el código del repositorio.
-###Requisitos
+### Requisitos
 - Node.js
 - Angular
 - Navegador Web
